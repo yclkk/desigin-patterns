@@ -24,3 +24,5 @@ public class Main {
 //        return c.stream().max(Comparator.naturalOrder());
 //    }
 }
+
+22
