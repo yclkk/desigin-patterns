@@ -13,6 +13,8 @@ public class Main {
         System.out.println(date);
         Calendar calendar1 = Calendar.getInstance();
         Date date1 = new Date();
+        Calendar calendar2= Calendar.getInstance();
+        Date date2 = new Date();
 
 
 
