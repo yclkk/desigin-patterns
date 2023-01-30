@@ -8,6 +8,7 @@ import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) throws Exception {
+
         Calendar calendar = Calendar.getInstance();
         Date date = new Date();
         System.out.println(date);
@@ -17,12 +18,12 @@ public class Main {
         Date date2 = new Date();
 
 
-
     }
 
 //    public static <E extends Comparable<E>> Stream<Optional<E>> max(Collection<E> c) {
 //        return c.stream().max(Comparator.naturalOrder());
 //    }
 }
+
 
 22
