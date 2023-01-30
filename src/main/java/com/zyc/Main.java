@@ -11,6 +11,9 @@ public class Main {
         Calendar calendar = Calendar.getInstance();
         Date date = new Date();
         System.out.println(date);
+        Calendar calendar1 = Calendar.getInstance();
+        Date date1 = new Date();
+
 
 
     }
