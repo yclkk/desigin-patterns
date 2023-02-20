@@ -6,6 +6,7 @@ public class Example {
         test(dynamicArray);
 
     }
+
     public static void test(DynamicArray dynamicArray) {
         dynamicArray.add(1);
         dynamicArray.add(3);
