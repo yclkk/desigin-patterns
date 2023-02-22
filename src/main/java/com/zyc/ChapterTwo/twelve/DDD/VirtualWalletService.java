@@ -26,14 +26,14 @@ public class VirtualWalletService {
         VirtualWalletEntity walletEntity = walletRepo.getWalletEntity(walletId);
         VirtualWallet wallet = convert(walletEntity);
         wallet.debit(amount);
-        walletRepo.updateBalance(walletId, wallet.balance());
+        walletRepo.updateBalance(walletId, wallet.getAvailableBalance());
     }
 
     public void credit(Long walletId, BigDecimal amount) throws Exception {
         VirtualWalletEntity walletEntity = walletRepo.getWalletEntity(walletId);
         VirtualWallet wallet = convert(walletEntity);
         wallet.credit(amount);
-        walletRepo.updateBalance(walletId, wallet.balance());
+        walletRepo.updateBalance(walletId, wallet.getAvailableBalance());
     }
     public void transfer(Long fromWalletId, Long toWalletId, BigDecimal amount) throws Exception {
         VirtualWalletTranscationEntity transcationEntity = new VirtualWalletTranscationEntity();

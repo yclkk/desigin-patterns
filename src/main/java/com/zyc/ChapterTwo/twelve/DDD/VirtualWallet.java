@@ -7,16 +7,29 @@ public class VirtualWallet {
     private Long createTime = System.currentTimeMillis();
     private BigDecimal balance = BigDecimal.ZERO;
 
+    private boolean isAllowedOverDraft = true;
+
+    private BigDecimal overDraftAmount = BigDecimal.ZERO;
+
+    private BigDecimal frozenDraftAmount = BigDecimal.ZERO;
+
     public VirtualWallet(Long preAllocatedId) {
         this.id = preAllocatedId;
     }
 
-    public BigDecimal balance() {
-        return this.balance;
+
+
+    public BigDecimal getAvailableBalance() {
+        BigDecimal totalAvailableBalance = this.balance.subtract(this.frozenDraftAmount);
+        if (isAllowedOverDraft) {
+            totalAvailableBalance.add(this.overDraftAmount);
+        }
+        return totalAvailableBalance;
     }
 
     public void debit(BigDecimal amount) throws Exception {
-        if (this.balance.compareTo(amount) < 0) {
+        BigDecimal totalAvailableBalance = getAvailableBalance();
+        if (totalAvailableBalance.compareTo(amount) < 0) {
             throw new Exception("金额不足");
         }
         this.balance.subtract(amount);
