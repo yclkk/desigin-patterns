@@ -18,7 +18,6 @@ public class VirtualWallet {
     }
 
 
-
     public BigDecimal getAvailableBalance() {
         BigDecimal totalAvailableBalance = this.balance.subtract(this.frozenDraftAmount);
         if (isAllowedOverDraft) {
@@ -41,7 +40,6 @@ public class VirtualWallet {
         }
         this.balance.add(amount);
     }
-
 
 
 }
